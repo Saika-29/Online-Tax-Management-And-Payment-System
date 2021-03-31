@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<section>
+
+		<div class="container">
+			<br />
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-10 col-lg-8">
+					<form class="card card-sm">
+						<div class="card-body row no-gutters align-items-center">
+
+							<!--end of col-->
+							<div class="col">
+								<input
+									class="form-control form-control-lg form-control-borderless"
+									type="search" id="query" name="query"
+									placeholder="Search Employees">
+							</div>
+							<!--end of col-->
+							<div class="col-auto">
+								<button class="btn btn-lg btn-success" type="submit">Search</button>
+							</div>
+							<!--end of col-->
+						</div>
+					</form>
+				</div>
+				<!--end of col-->
+			</div>
+		</div>
+
+		<!-- view employee details -->
+
+		<div class="card mr-3 ml-3" th:if="${employee}">
+
+			<div class="card-body">
+
+				<h1 class="text-center">Salary Portal</h1>
+
+				<div class="container-fluid mt-1">
+
+					<div class="row">
+
+						<div class="col-md-8 offset-md-2">
+
+							<form action="#" th:object="${employee}" method="POST"
+								th:action="@{'/admin/credit-salary/'+${employee.empId}}" class="mt-2">
+
+
+								<!-- Name  -->
+
+								<div class="form-group row">
+
+									<label for="example-text-input" class="col-2 col-form-label">Name</label>
+
+									<div class="col-10">
+
+										<input class="form-control" id="name" name="name" type="text"
+											th:value="${employee.name}" placeholder="Enter Name here" readonly>
+									</div>
+								</div>
+
+
+								<!-- Role  -->
+
+								<div class="form-group row">
+
+									<label for="example-text-input" class="col-2 col-form-label">Role</label>
+
+									<div class="col-10">
+
+										<input class="form-control" id="role" name="role" type="text"
+											th:value="ROLE_EMPLOYEE" readonly>
+									</div>
+								</div>
+
+								<!--  Designation Field -->
+
+								<div class="form-group row">
+
+									<label for="example-text-input" class="col-2 col-form-label">Designation</label>
+
+									<div class="col-10">
+
+										<input class="form-control" id="designation" name="designation" type="text"
+											th:value="${employee.designation}" readonly>
+									</div>
+								</div>
+								
+								<!-- Basic  -->
+
+								<div class="form-group row">
+
+									<label for="example-text-input" class="col-2 col-form-label">Basic</label>
+
+									<div class="col-10">
+
+										<input class="form-control" type="text"
+											th:value="${employee.salary.basic}" placeholder="Enter Name here" readonly>
+									</div>
+								</div>
+								
+								<!-- DA  -->
+
+								<div class="form-group row">
+
+									<label for="example-text-input" class="col-2 col-form-label">DA</label>
+
+									<div class="col-10">
+
+										<input class="form-control" type="text"
+											th:value="${employee.salary.da}" placeholder="Enter Name here" readonly>
+									</div>
+								</div>
+								
+								<!-- HRA  -->
+
+								<div class="form-group row">
+
+									<label for="example-text-input" class="col-2 col-form-label">HRA</label>
+
+									<div class="col-10">
+
+										<input class="form-control" type="text"
+											th:value="${employee.salary.hra}" placeholder="Enter Name here" readonly>
+									</div>
+								</div>
+								
+								<!-- LTA  -->
+
+								<div class="form-group row">
+
+									<label for="example-text-input" class="col-2 col-form-label">LTA</label>
+
+									<div class="col-10">
+
+										<input class="form-control" type="text"
+											th:value="${employee.salary.lta}" placeholder="Enter Name here" readonly>
+									</div>
+								</div>
+								
+								<!-- Attendance  -->
+								
+								<div class="form-group row" th:object="${payslip}">
+
+									<label for="example-text-input" class="col-2 col-form-label">Attendance</label>
+
+									<div class="col-10">
+
+										<input class="form-control" id="attendance" name="attendance" type="text"
+											value="" placeholder="No. of Working days">
+									</div>
+								</div>
+
+								<div class="container text-center">
+
+									<button class="btn btn-outline-primary">Credit Salary</button>
+
+								</div>
+
+
+							</form>
+
+
+						</div>
+
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+		</div>
+		
+	</section>
+</body>
+
+</html>

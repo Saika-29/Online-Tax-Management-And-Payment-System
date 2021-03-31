@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+<body>
+	<section>
+
+
+		<div class="card mr-3 ml-3">
+
+			<div class="card-body">
+
+				<h1 class="text-center">Add Employees</h1>
+
+				<div class="container-fluid mt-1">
+
+					<div class="row">
+
+						<div class="col-md-8 offset-md-2">
+
+							<form action="#" th:object="${employee}" method="POST"
+								th:action="@{/admin/process-add-employee}" class="mt-2">
+
+
+								<!-- Name  -->
+
+								<div class="form-group row">
+
+									<label for="example-text-input" class="col-2 col-form-label">Name</label>
+
+									<div class="col-10">
+
+										<input class="form-control" id="name" name="name" type="text"
+											value="" placeholder="Enter Name here" required>
+									</div>
+								</div>
+
+
+								<!-- Email Field  -->
+
+								<div class="form-group row" th:object="${user1}">
+
+									<label for="example-text-input" class="col-2 col-form-label">E-mail</label>
+
+									<div class="col-10">
+
+										<input class="form-control" id="username" name="userName"
+											type="email" value="" placeholder="Enter username here"
+											required>
+									</div>
+								</div>
+
+
+								<!--  Password -->
+
+								<div class="form-group row" th:object="${user1}">
+
+									<label for="example-text-input" class="col-2 col-form-label">Password</label>
+
+									<div class="col-10">
+
+										<input class="form-control" id="password" name="password"
+											type="password" value="" placeholder="Enter password here"
+											required>
+									</div>
+								</div>
+
+								<!-- Role  -->
+
+								<div class="form-group row" th:object="${user1}">
+
+									<label for="example-text-input" class="col-2 col-form-label">Role</label>
+
+									<div class="col-10">
+
+										<input class="form-control" id="role" name="role" type="text"
+											value="ROLE_EMPLOYEE" readonly>
+									</div>
+								</div>
+
+								<!-- Gender -->
+
+								<div class="form-group row">
+
+									<label for="example-text-input" class="col-2 col-form-label">Gender</label>
+
+									<div class="col-10">
+
+										<label class="radio-inline"> <input type="radio"
+											name="gender" value="Male">Male
+										</label> <label class="radio-inline"> <input type="radio"
+											name="gender" value="Female">Female
+										</label> <label class="radio-inline"> <input type="radio"
+											name="gender" value="Other">Other
+										</label>
+									</div>
+								</div>
+
+
+								<!-- Date of Birth -->
+
+								<div class="form-group row">
+									<label for="example-date-input" class="col-2 col-form-label">Date
+										of Birth</label>
+									<div class="col-10">
+										<input class="form-control" name="dateOfBirth" type="date"
+											value="" placeholder="yyyy/MM/dd" id="dob" required>
+									</div>
+								</div>
+
+								<!--  Designation Field -->
+
+								<div class="form-group row">
+
+									<label for="example-text-input" class="col-2 col-form-label">Designation</label>
+
+									<div class="col-10">
+
+										<select class="form-control" th:field="*{designation}">
+											<option th:each="d : ${listDesg}" th:value="${d}"
+												th:text="${d}"></option>
+										</select>
+									</div>
+								</div>
+
+								<!-- Date of Join -->
+
+								<div class="form-group row">
+									<label for="example-date-input" class="col-2 col-form-label">Date
+										of Join</label>
+									<div class="col-10">
+										<input class="form-control" name="dateOfJoin" type="date"
+											value="" placeholder="yyyy/MM/dd" id="doj">
+									</div>
+								</div>
+
+								<!-- City  -->
+
+								<div class="form-group row">
+
+									<label for="example-text-input" class="col-2 col-form-label">City</label>
+
+									<div class="col-10">
+
+										<input class="form-control" id="city" name="city" type="text"
+											value="" placeholder="Enter City here" required>
+									</div>
+								</div>
+
+								<!-- State  -->
+
+								<div class="form-group row">
+
+									<label for="example-text-input" class="col-2 col-form-label">State</label>
+
+									<div class="col-10">
+
+										<input class="form-control" id="state" name="state"
+											type="text" value="" placeholder="Enter State here" required>
+									</div>
+								</div>
+
+								<!-- PinCode  -->
+
+								<div class="form-group row">
+
+									<label for="example-text-input" class="col-2 col-form-label">PinCode</label>
+
+									<div class="col-10">
+
+										<input class="form-control" id="pincode" name="pincode"
+											type="text" value="" placeholder="Enter Pincode here"
+											required>
+									</div>
+								</div>
+
+
+								<div class="container text-center">
+
+									<button class="btn btn-outline-primary">Save Employee</button>
+
+								</div>
+
+
+							</form>
+
+
+						</div>
+
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+		</div>
+		<script>
+        $(document).ready(() => {
+          $(".item").removeClass("active");
+          $("#add-link").addClass("active");
+        });
+      </script>
+
+	</section>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+</head>
+<body>
+	<section
+		class="banner d-flex justify-content-center align-items-center">
+
+		<div class="text-center">
+			<h1 class="font-weight-bold">Online Tax Management and Payment
+				System</h1>
+			<div class="text-center">
+				<div class="row">
+					<div class="col-md-3">
+						<a th:href="@{/admin/index}" class="btn btn-success btn-lg btn-block btn-huge">
+							Admin</a>
+					</div>
+					<div class="col-md-3">
+						<a th:href="@{/employee/index}" class="btn btn-success btn-lg btn-block btn-huge">
+							Employee</a>
+					</div>
+					<div class="col-md-3">
+						<a th:href="@{/tax/index}" class="btn btn-success btn-lg btn-block btn-huge">Tax
+							Dept</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>

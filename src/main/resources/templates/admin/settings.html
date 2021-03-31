@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<section>
+
+
+		<div class="container">
+
+			<div class="card">
+
+				<div class="card-body">
+
+					<div class="container text-center">
+						<img src="" style="height: 200px; width: 200px;"
+							class="my_profile_picture" th:src="@{'/images/receipt.png'}"
+							alt="Sample Profile Picture" />
+
+					</div>
+
+					<h1 class="text-center mt-3" th:text="Settings"></h1>
+
+					<table class="table text-left">
+						<thead>
+							<tr>
+								<th scope="col">Employee ID</th>
+								<th scope="col"><span th:text=""></span></th>
+
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<th scope="row">Designation</th>
+								<td><span th:text=""></span></td>
+
+							</tr>
+							
+							<tr>
+								<th scope="row">Basic</th>
+								<td><span th:text=""></span></td>
+
+							</tr>
+							
+							<tr>
+								<th scope="row">Dearness Allowance</th>
+								<td><span th:text=""></span></td>
+
+							</tr>
+							
+							<tr>
+								<th scope="row">House Rent Allowance</th>
+								<td><span th:text=""></span></td>
+
+							</tr>
+							
+							<tr>
+								<th scope="row">Leave Travel Allowance</th>
+								<td><span th:text=""></span></td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<script>
+        $(document).ready(() => {
+          $(".item").removeClass("active");
+          $("#profile-link").addClass("active");
+        });
+      </script>
+
+	</section>
+</body>
+
+</html>
